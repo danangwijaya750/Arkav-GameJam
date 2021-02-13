@@ -114,7 +114,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 33a04a1b5bbd7194e99a17494029ab58, type: 3}
   m_Color: {r: 1, g: 0.051886797, b: 0.06054985, a: 1}
   m_FlipX: 0
@@ -198,7 +198,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 87b3a47f49e89724583a8b5e519e664e, type: 3}
   m_Color: {r: 1, g: 0.4411055, b: 0.3915094, a: 1}
   m_FlipX: 0
@@ -226,6 +226,9 @@ MonoBehaviour:
   wallMask:
     serializedVersion: 2
     m_Bits: 256
+  finishMask:
+    serializedVersion: 2
+    m_Bits: 2048
   goButton: Player 1
   boostVFX: {fileID: 3188892760436700231, guid: 19326eca4d5f0ba48a069a0f930d9bd4,
     type: 3}
