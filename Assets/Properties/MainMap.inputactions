@@ -1,0 +1,60 @@
+{
+    "name": "MainMap",
+    "maps": [
+        {
+            "name": "Player 1",
+            "id": "0cd775d0-1ea7-4c27-ba48-aa31f51b58c6",
+            "actions": [
+                {
+                    "name": "Go",
+                    "type": "Button",
+                    "id": "47c02254-9cf7-40b8-8830-67eb0e115d4a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9ea497ed-3307-4cbe-a458-c18185c3fe82",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Go",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Player 2",
+            "id": "495c8c9a-06df-4c02-8f20-892e70f0ee80",
+            "actions": [
+                {
+                    "name": "Go",
+                    "type": "Button",
+                    "id": "77c21bb4-c453-4c38-89a2-80304f9c1b1e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9d986dc1-fe2e-43c6-9c36-ce976b52e2ab",
+                    "path": "<Keyboard>/slash",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Go",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private LayerMask wallMask = default;
 
+    [SerializeField]
+    private string goButton = "Player 1";
+
     private Rigidbody2D rb;
 
     private void Awake()
@@ -19,16 +22,20 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(goButton))
         {
-            var hit = Physics2D.Raycast(transform.position, director.transform.rotation * Vector3.up, 100, wallMask);
-            if (hit)
-            {
-                var direction = (hit.point - (Vector2)transform.position).normalized;
-                transform.position = hit.point - (direction * 0.1f);
-                transform.rotation = director.transform.rotation;
-            }
+            Go();
         }
-        Debug.DrawRay(transform.position, director.transform.rotation * Vector3.up * 100, Color.green);
+    }
+
+    public void Go()
+    {
+        var hit = Physics2D.Raycast(transform.position, director.transform.rotation * Vector3.up, 100, wallMask);
+        if (hit)
+        {
+            var direction = (hit.point - (Vector2)transform.position).normalized;
+            transform.position = hit.point - (direction * 0.1f);
+            transform.rotation = director.transform.rotation;
+        }
     }
 }
