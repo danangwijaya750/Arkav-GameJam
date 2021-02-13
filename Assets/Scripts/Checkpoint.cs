@@ -7,7 +7,11 @@ public class Checkpoint : BaseCheckpoint
 {
     public override void TriggerCheckpoint(Player player)
     {
-        if (player.Checkpoints.Count <= 0 || !player.Checkpoints[0].Equals(this))
+        if (player.Checkpoints.Count <= 0)
+        {
+            return;
+        }
+        if (!player.Checkpoints[0].Equals(this))
         {
             return;
         }
