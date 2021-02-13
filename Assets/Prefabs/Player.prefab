@@ -226,6 +226,9 @@ MonoBehaviour:
   wallMask:
     serializedVersion: 2
     m_Bits: 256
+  goButton: Player 1
+  boostVFX: {fileID: 3188892760436700231, guid: 19326eca4d5f0ba48a069a0f930d9bd4,
+    type: 3}
 --- !u!50 &3526555377685576565
 Rigidbody2D:
   serializedVersion: 4

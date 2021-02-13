@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private string goButton = "Player 1";
 
+    [SerializeField]
+    private GameObject boostVFX = null;
+
     private Rigidbody2D rb;
 
     private void Awake()
@@ -34,8 +37,13 @@ public class Player : MonoBehaviour
         if (hit)
         {
             var direction = (hit.point - (Vector2)transform.position).normalized;
+            var distance = Vector3.Distance(transform.position, hit.point);
             transform.position = hit.point - (direction * 0.1f);
             transform.rotation = director.transform.rotation;
+            var effect = Instantiate(boostVFX, transform.position, transform.rotation);
+            var particle = effect.GetComponent<ParticleSystem>();
+            var shape = particle.shape;
+            shape.length = distance;
         }
     }
 }
