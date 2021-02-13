@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int Lap { get; set; } = 1;
+    public int Lap { get; set; } = 0;
     public List<BaseCheckpoint> Checkpoints { get; set; } = null;
 
     [SerializeField]
