@@ -5,6 +5,22 @@ using UnityEngine.SceneManagement;
 public class MenuButton : MonoBehaviour
 {
     public GameObject panelLap;
+
+    [SerializeField]
+    private SessionSettings session = null;
+
+    [SerializeField]
+    private SessionSettings defaultSettings = null;
+
+    private void Awake()
+    {
+        if (defaultSettings != null)
+        {
+            session.Laps = defaultSettings.Laps;
+            session.Difficulty = defaultSettings.Difficulty;
+        }
+    }
+
     public void playGame(){
         panelLap.SetActive(true);
     }
@@ -13,22 +29,20 @@ public class MenuButton : MonoBehaviour
         
     }
 
-    public void select1Lap(){
-        FinishLine.laps=1;
-        startGame();
+    public void SetLaps(int laps)
+    {
+        session.Laps = laps;
     }
-    public void select2Laps(){
-        FinishLine.laps=2;
-        startGame();
+
+    public void SetDifficulty(int difficulty)
+    {
+        session.Difficulty = difficulty;
     }
-    public void select3Laps(){
-        FinishLine.laps=3;
-        startGame();
-    }
+
     public void closePanel(){
         panelLap.SetActive(false);
     }
-    private void startGame(){
+    public void startGame(){
         SceneManager.LoadScene("Test",LoadSceneMode.Single);
     }
 

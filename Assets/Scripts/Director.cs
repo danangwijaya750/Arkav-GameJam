@@ -6,7 +6,19 @@ public class Director : MonoBehaviour
 {
     [SerializeField]
     private float speed = 3f;
+
+    [SerializeField]
+    private SessionSettings settings = null;
+
     private Vector3 target = Vector3.forward;
+
+    private void Awake()
+    {
+        if (settings != null)
+        {
+            speed = settings.Difficulty;
+        }
+    }
 
     private void FixedUpdate()
     {

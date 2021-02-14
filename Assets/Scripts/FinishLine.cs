@@ -5,7 +5,10 @@ using TMPro;
 public class FinishLine : BaseCheckpoint
 {
     [SerializeField]
-    public static int laps = 3;
+    private int laps = 3;
+
+    [SerializeField]
+    private SessionSettings settings = null;
 
     [SerializeField]
     private List<BaseCheckpoint> checkpoints = null;
@@ -15,6 +18,14 @@ public class FinishLine : BaseCheckpoint
 
     [SerializeField]
     public TextMeshProUGUI textWinner;
+
+    private void Awake()
+    {
+        if (settings != null)
+        {
+            laps = settings.Laps;
+        }
+    }
 
     public override void TriggerCheckpoint(Player player)
     {
