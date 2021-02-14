@@ -19,6 +19,8 @@ public class FinishLine : BaseCheckpoint
     [SerializeField]
     public TextMeshProUGUI textWinner;
 
+    private bool gameOver = false;
+
     private void Awake()
     {
         if (settings != null)
@@ -40,11 +42,13 @@ public class FinishLine : BaseCheckpoint
         }
         player.Lap++;
         player.Checkpoints.AddRange(checkpoints);
-        if (player.Lap >= laps)
+        if (player.Lap >= laps && !gameOver)
         {
+            gameOver = true;
             Debug.Log($"{player.name} wins!");
             textWinner.text=$"{player.name} Wins!";
             panelWinner.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 }
