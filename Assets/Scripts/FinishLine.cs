@@ -15,11 +15,14 @@ public class FinishLine : BaseCheckpoint
 
     [SerializeField]
     public GameObject panelWinner;
+    public GameObject pauseButton;
 
     [SerializeField]
     public TextMeshProUGUI textWinner;
 
     private bool gameOver = false;
+    public TextMeshProUGUI textPlayer1Laps;
+    public TextMeshProUGUI textPlayer2Laps;
 
     private void Awake()
     {
@@ -27,6 +30,8 @@ public class FinishLine : BaseCheckpoint
         {
             laps = settings.Laps;
         }
+        textPlayer1Laps.text=$"Lap to go : {laps}";
+        textPlayer2Laps.text=$"Lap to go : {laps}";
     }
 
     public override void TriggerCheckpoint(Player player)
@@ -41,6 +46,11 @@ public class FinishLine : BaseCheckpoint
             return;
         }
         player.Lap++;
+        if(player.name=="Player 1"){
+            textPlayer1Laps.text=$"Lap to go : {laps-player.Lap}";
+        }else{
+            textPlayer2Laps.text=$"Lap to go : {laps-player.Lap}";
+        }
         player.Checkpoints.AddRange(checkpoints);
         if (player.Lap >= laps && !gameOver)
         {
@@ -48,6 +58,7 @@ public class FinishLine : BaseCheckpoint
             Debug.Log($"{player.name} wins!");
             textWinner.text=$"{player.name} Wins!";
             panelWinner.SetActive(true);
+            pauseButton.SetActive(false);
             Time.timeScale = 0;
         }
     }
