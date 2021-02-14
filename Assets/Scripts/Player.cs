@@ -24,9 +24,13 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    private AudioSource goSound,stopSound;
+
     private void Awake()
     {
         TryGetComponent(out rb);
+        goSound=GameObject.Find("AudioGo").GetComponent<AudioSource>();
+        stopSound = GameObject.Find("AudioStop").GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -34,6 +38,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(goButton))
         {
             Go();
+            goSound.Play();
         }
     }
 
@@ -55,6 +60,7 @@ public class Player : MonoBehaviour
             var particle = effect.GetComponent<ParticleSystem>();
             var shape = particle.shape;
             shape.length = distance;
+            stopSound.Play();
         }
     }
 }
