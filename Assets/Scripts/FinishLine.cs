@@ -1,14 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class FinishLine : BaseCheckpoint
 {
     [SerializeField]
-    private int laps = 3;
+    public static int laps = 3;
 
     [SerializeField]
     private List<BaseCheckpoint> checkpoints = null;
+
+    [SerializeField]
+    public GameObject panelWinner;
+
+    [SerializeField]
+    public TextMeshProUGUI textWinner;
 
     public override void TriggerCheckpoint(Player player)
     {
@@ -26,6 +32,8 @@ public class FinishLine : BaseCheckpoint
         if (player.Lap >= laps)
         {
             Debug.Log($"{player.name} wins!");
+            textWinner.text=$"{player.name} Wins!";
+            panelWinner.SetActive(true);
         }
     }
 }
